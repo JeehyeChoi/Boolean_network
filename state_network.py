@@ -11,8 +11,6 @@ from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from HEADER.file_operation import import_truth_table, import_key, import_adj
 
-#array_of_arrays = [[None] * 5 for _ in range(32)]
-
 fnO=pd.read_csv("origin_filename",header=None,sep=" ")
 aa=int(sys.argv[1])
 for i in [aa]:
