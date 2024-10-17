@@ -11,7 +11,7 @@ from collections import Counter
 from concurrent.futures import ProcessPoolExecutor
 from HEADER.file_operation import import_truth_table, import_key, import_adj
 
-fnO=pd.read_csv("network_title.txt",header=None,sep=" ")
+fnO=pd.read_csv("origin_filename",header=None,sep=" ")
 #aa=int(sys.argv[1])
 #for i in [aa]:
 for i in range(0,len(fnO)):
