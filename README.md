@@ -15,3 +15,6 @@
 
 Boolean state는 ./DATA_matrix/Signal_Transduction_in_Fibroblasts_MATRIX_pm.csv 의 첫째줄에 나와있는 유전자 순으로 0/1 값을 가지는지를 의미한다.
 
+2. eigen_value_matrix.py 파일에 관하여
+
+필요한 자료: numnodes-filename, 
