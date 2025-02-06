@@ -161,54 +161,29 @@ if __name__ == "__main__":
 			df.to_csv("STATE_Networks/{:s}.cluster".format(fnorigin), index=False,sep=" ")
 
 			basin=basin_nodes_by_cluster(cluster_map)
-#			print(basin)
+			#print(basin)
 		
 			attractors,loops= find_attractors_and_loops(G)
-#			print("Found loops and attractors:", loops)
+			#print("Found loops and attractors:", loops)
 
 			transition_matrix, loop_node = create_transition_matrix(G, loops,num_genes_input,cluster_map)
 			transition_matrix.T.to_csv("STATE_Networks/{:s}.trans_matrix".format(fnorigin),index=False,header=False,sep=" ")
 			#print(transition_matrix.T)
 				
-			#eigenvalues, eigenvectors = np.linalg.eig(transition_matrix.T)
 			eigenvalues, eigenvectors = np.linalg.eig(transition_matrix)
 
-			"""
+			
 			largest_eigenvalue = np.max(eigenvalues)
 			largest_eigenvalue_index = np.where(eigenvalues == largest_eigenvalue)[0][0]
 			largest_eigenvector = eigenvectors[:, largest_eigenvalue_index]
 			normalized_vector = (largest_eigenvector / np.sum(largest_eigenvector)) 
-
-			has_imaginary = not np.allclose(normalized_vector.imag, 0)
-			if has_imaginary == True:
-				print(f"허수가 존재하는가? {has_imaginary}")
-			#print("Largest Eigenvalue:", largest_eigenvalue)
-			#print("Normalized Positive Eigenvector:", normalized_vector.real)
 			
 			diagonal_elements = np.diag(transition_matrix.T)
 			print("{:s},{:g},{:g}".format(fnorigin,np.dot(diagonal_elements, normalized_vector.real),np.dot(basin, normalized_vector.real)))
-			"""
-
+			
 			print(eigenvectors.shape)
 			print(eigenvectors)
 		
-			# 고유벡터 분포 분석
-			for i, eigenvector in enumerate(eigenvectors.T):  # 고유벡터는 열 기준
-				plt.hist(eigenvector, bins=10, alpha=0.7, label=f"Eigenvector {i+1}")
-
-			plt.xlabel("Value")
-			plt.ylabel("Frequency")
-			plt.title("Distribution of Eigenvector Elements")
-			plt.legend()
-			plt.savefig("ev_distr.pdf")
-
-			# 통계 분석
-			for i, eigenvector in enumerate(eigenvectors.T):
-				mean = np.mean(eigenvector)
-				std_dev = np.std(eigenvector)
-				print(f"Eigenvector {i+1}: Mean = {mean:.4f}, Std Dev = {std_dev:.4f}")
-
-
 
 			if N==0:
 				  break
