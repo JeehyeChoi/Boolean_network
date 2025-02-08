@@ -58,8 +58,8 @@ Each gene takes a value of 0 or 1.
 
 2. eigen_value_matrix.py file
 
-Required Data:
-numnodes-filename
+Required Data: numnodes-filename and /STATE_Networks/Signal_Transduction_in_Fibroblasts.nw
+
 
 
 
