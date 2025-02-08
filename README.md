@@ -26,6 +26,7 @@ Boolean state는 ./DATA_matrix/Signal_Transduction_in_Fibroblasts_MATRIX_pm.csv 
 
 Required Data:
 Data from the DATA_truth folder
+
 Data from the DATA_matrix folder
 
 Compilation:
