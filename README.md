@@ -17,4 +17,51 @@ Boolean state는 ./DATA_matrix/Signal_Transduction_in_Fibroblasts_MATRIX_pm.csv 
 
 2. eigen_value_matrix.py 파일에 관하여
 
-필요한 자료: numnodes-filename, 
+필요한 자료: numnodes-filename
+
+
+
+########################################################################################################################
+Eng ver.
+########################################################################################################################
+1. state_arrow.c file
+
+Required Data:
+Data from the DATA_truth folder
+Data from the DATA_matrix folder
+
+Compilation:
+gcc -std=c99 -Wall -g -lm state_arrow.c -o state_arrow.out
+
+Execution:
+./state_arrow.out {origin_filename}
+
+Example:
+./state_arrow.out Signal_Transduction_in_Fibroblasts
+
+Output:
+A file will be generated in the ./STATE_Networks/ directory with the name {origin_filename}.nw
+
+Example:
+./STATE_Networks/Signal_Transduction_in_Fibroblasts.nw
+
+File Format:
+The output file consists of two columns in the format:
+{source} {target}
+
+It represents the connections between nodes in a directed network.
+The numbers representing nodes are decimal conversions of Boolean states expressed in binary form.
+
+The Boolean state corresponds to the gene order listed in the first row of the following file:
+./DATA_matrix/Signal_Transduction_in_Fibroblasts_MATRIX_pm.csv
+
+Each gene takes a value of 0 or 1.
+
+2. eigen_value_matrix.py file
+
+Required Data:
+numnodes-filename
+
+
+
+
